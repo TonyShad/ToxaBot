@@ -23,3 +23,12 @@ bot.on('message', function (msg) {
     var photo = 'cats.png';
     bot.sendPhoto(chatId, photo, {caption: 'Милые котята'});
 });
+
+
+setInterval(function(){
+        var curDate = new Date();
+        if (curDate.getHours() == 15 && curDate.getMinutes() == 30) {
+        	bot.sendMessage("Бля, еще двутораху сидеть")
+        }
+           
+},1000);
