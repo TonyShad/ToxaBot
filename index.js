@@ -21,7 +21,7 @@ bot.onText(/\/bidloMode (.+)/, (msg, match) => {
         bidloMode.push({"chat": id, "mode": "on"});
         bot.sendMessage(id, "Bidlo Mode set to True");
     } else {
-        bidloMode = _.remove(bidloMode, function(n) {
+        _.remove(bidloMode, function(n) {
             return n.chat == id;
         });
         bot.sendMessage(id, "Bidlo Mode set to False")
