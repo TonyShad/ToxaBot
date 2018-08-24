@@ -34,8 +34,6 @@ bot.onText(/\/sosat/, (msg) => {
 })
 
 
-
-
 setInterval(function(){
         var curDate = new Date();
         if (curDate.getHours() == 17 && curDate.getMinutes() == 07 && curDate.getSeconds() == 10) {
