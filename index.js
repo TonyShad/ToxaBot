@@ -12,6 +12,10 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
     bot.sendMessage(fromId, resp);
 });
 
+bot.onText(/\/sosat /, () => {
+	bot.sendMessage("VSEM SOSAT")
+}
+
 // Простая команда без параметров.
 bot.on('message', function (msg) {
     var chatId = msg.chat.id;
