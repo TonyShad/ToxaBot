@@ -43,10 +43,10 @@ bot.on('message', function (msg) {
 
 setInterval(function(){
         var curDate = new Date();
-        if (curDate.getHours() == 15 && curDate.getMinutes() == 48 && curDate.getSeconds() == 1) {
+        if (curDate.getHours() == 15 && curDate.getMinutes() == 50 && curDate.getSeconds() == 1) {
             bidloMode.map((item, i) => {
                 if(item.mode == "on") {
-                    bot.sendMessage("Бля, еще двутораху сидеть")
+                    bot.sendMessage(item.chat, "Бля, еще двутораху сидеть")
                 }
             })
         	
