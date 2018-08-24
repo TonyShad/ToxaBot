@@ -36,7 +36,7 @@ bot.onText(/\/sosat/, (msg) => {
 
 setInterval(function(){
         var curDate = new Date();
-        if (curDate.getHours() == 17 && curDate.getMinutes() == 07 && curDate.getSeconds() == 10) {
+        if (curDate.getHours() == 17 && curDate.getMinutes() == 20 && curDate.getSeconds() == 10) {
             bidloMode.map((item, i) => {
                 if(item.mode == "on") {
                     bot.sendMessage(item.chat, "Бля, еще двутораху сидеть")
