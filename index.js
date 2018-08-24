@@ -17,7 +17,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
 
 bot.onText(/\/bidloMode (.+)/, (msg, match) => {
     let id = msg.chat.id;
-    if(match[1] == "true") {
+    if(match[1] == "true" && _.findIndex(bidloMode, function(o) {return o.chat == id}) == 0) {
         bidloMode.push({"chat": id, "mode": "on"});
         bot.sendMessage(id, "Bidlo Mode set to True");
     } else {
@@ -28,8 +28,9 @@ bot.onText(/\/bidloMode (.+)/, (msg, match) => {
     }
 })
 
-bot.onText(/\/sosat /, () => {
-	bot.sendMessage("VSEM SOSAT")
+bot.onText(/\/sosat /, (msg) => {
+    let id = msg.chat.id
+	bot.sendMessage(id, "VSEM SOSAT")
 })
 
 // Простая команда без параметров.
