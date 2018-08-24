@@ -17,7 +17,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
 
 bot.onText(/\/bidloMode (.+)/, (msg, match) => {
     let id = msg.chat.id;
-    if(match == "true") {
+    if(match[1] == "true") {
         bidloMode.push({"chat": id, "mode": "on"});
         bot.sendMessage(id, "Bidlo Mode set to True");
     } else {
