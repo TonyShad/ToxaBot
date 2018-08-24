@@ -14,7 +14,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
 
 bot.onText(/\/sosat /, () => {
 	bot.sendMessage("VSEM SOSAT")
-}
+})
 
 // Простая команда без параметров.
 bot.on('message', function (msg) {
