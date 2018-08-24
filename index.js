@@ -36,15 +36,15 @@ bot.onText(/\/sosat/, (msg) => {
 
 
 
-// setInterval(function(){
-//         var curDate = new Date();
-//         if (curDate.getHours() == 15 && curDate.getMinutes() == 50 && curDate.getSeconds() == 1) {
-//             bidloMode.map((item, i) => {
-//                 if(item.mode == "on") {
-//                     bot.sendMessage(item.chat, "Бля, еще двутораху сидеть")
-//                 }
-//             })
+setInterval(function(){
+        var curDate = new Date();
+        if (curDate.getHours() == 17 && curDate.getMinutes() == 05 && curDate.getSeconds() == 10) {
+            bidloMode.map((item, i) => {
+                if(item.mode == "on") {
+                    bot.sendMessage(item.chat, "Бля, еще двутораху сидеть")
+                }
+            })
         	
-//         }
+        }
            
-// },1000);
+},1000);
