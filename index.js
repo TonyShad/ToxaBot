@@ -27,7 +27,7 @@ bot.on('message', function (msg) {
 
 setInterval(function(){
         var curDate = new Date();
-        if (curDate.getHours() == 15 && curDate.getMinutes() == 30) {
+        if (curDate.getHours() == 15 && curDate.getMinutes() == 30 && curDate.getSeconds() == 1) {
         	bot.sendMessage("Бля, еще двутораху сидеть")
         }
            
