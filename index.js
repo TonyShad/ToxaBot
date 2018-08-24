@@ -1,9 +1,12 @@
 var TelegramBot = require('node-telegram-bot-api');
+var _ = require('lodash');
 
 // Устанавливаем токен, который выдавал нам бот.
 var token = '650570106:AAF4iuCjdSr144jXQm6UKM1l5tcdPmH92PA';
 // Включить опрос сервера
 var bot = new TelegramBot(token, {polling: true});
+
+let bidloMode = []
 
 // Написать мне ... (/echo Hello World! - пришлет сообщение с этим приветствием.)
 bot.onText(/\/echo (.+)/, function (msg, match) {
@@ -11,6 +14,19 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
     var resp = match[1];
     bot.sendMessage(fromId, resp);
 });
+
+bot.onText(/\/bidloMode (.+)/, (msg, match) => {
+    let id = msg.chat.id;
+    if(match == "true") {
+        bidloMode.push({"chat": id, "mode": "on"});
+        bot.sendMessage(id, "Bidlo Mode set to True");
+    } else {
+        bidloMode = _.remove(bidloMode, function(n) {
+            return n.chat == id;
+        });
+        bot.sendMessage(id, "Bidlo Mode set to False")
+    }
+})
 
 bot.onText(/\/sosat /, () => {
 	bot.sendMessage("VSEM SOSAT")
@@ -27,8 +43,13 @@ bot.on('message', function (msg) {
 
 setInterval(function(){
         var curDate = new Date();
-        if (curDate.getHours() == 15 && curDate.getMinutes() == 30 && curDate.getSeconds() == 1) {
-        	bot.sendMessage("Бля, еще двутораху сидеть")
+        if (curDate.getHours() == 15 && curDate.getMinutes() == 48 && curDate.getSeconds() == 1) {
+            bidloMode.map((item, i) => {
+                if(item.mode == "on") {
+                    bot.sendMessage("Бля, еще двутораху сидеть")
+                }
+            })
+        	
         }
            
 },1000);
