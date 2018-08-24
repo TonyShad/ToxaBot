@@ -26,31 +26,25 @@ bot.onText(/\/bidloMode (.+)/, (msg, match) => {
         });
         bot.sendMessage(id, "Bidlo Mode set to False")
     }
-})
+}) 
 
-bot.onText(/\/sosat /, (msg) => {
+bot.onText(/\/sosat/, (msg) => {
     let id = msg.chat.id
 	bot.sendMessage(id, "VSEM SOSAT")
 })
 
-// Простая команда без параметров.
-bot.on('message', function (msg) {
-    var chatId = msg.chat.id;
-    // Фотография может быть: путь к файлу, поток(stream) или параметр file_id
-    var photo = 'cats.png';
-    bot.sendPhoto(chatId, photo, {caption: 'Милые котята'});
-});
 
 
-setInterval(function(){
-        var curDate = new Date();
-        if (curDate.getHours() == 15 && curDate.getMinutes() == 50 && curDate.getSeconds() == 1) {
-            bidloMode.map((item, i) => {
-                if(item.mode == "on") {
-                    bot.sendMessage(item.chat, "Бля, еще двутораху сидеть")
-                }
-            })
+
+// setInterval(function(){
+//         var curDate = new Date();
+//         if (curDate.getHours() == 15 && curDate.getMinutes() == 50 && curDate.getSeconds() == 1) {
+//             bidloMode.map((item, i) => {
+//                 if(item.mode == "on") {
+//                     bot.sendMessage(item.chat, "Бля, еще двутораху сидеть")
+//                 }
+//             })
         	
-        }
+//         }
            
-},1000);
+// },1000);
